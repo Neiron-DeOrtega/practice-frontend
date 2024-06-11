@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 900px;
+  width: 90%;
+  margin: auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropMenu {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.textareaTitle {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.textareaTitle span {
+  font-weight: normal;
+}
+
+.textareaBtn {
+  padding: 5px 10px;
+  width: 20%;
+}
+
+.teacher {
+  margin-bottom: 10px;
+}
+
+.error {
+  width: 100%;
+  padding: 15px;
+  background-color: rgb(235, 77, 77);
+  color: #fff;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+}
+
+.error.confirm {
+  background-color: rgb(255, 102, 0);
+}
+
+.error.complete {
+  background-color: rgb(19, 136, 19);
+}
+
+.textarea {
+  width: 100%;
+  padding: 10px;
+  height: 20vh;
+  margin-bottom: 10px;
+  resize: none;
+}
