@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 //@ts-ignore
 import reportWebVitals from './reportWebVitals';
 import ManagerInputContainer, { ErrorList } from './components/ManagerInputContainer';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 
@@ -110,11 +109,7 @@ const fetchRequestsInstance = new FetchRequests();
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<ManagerInputContainer addError={addError} fetchRequests={fetchRequestsInstance}/>}/>
-      </Routes>
-    </BrowserRouter>
+    <ManagerInputContainer addError={addError} fetchRequests={fetchRequestsInstance}/>
   </React.StrictMode>
 );
 
