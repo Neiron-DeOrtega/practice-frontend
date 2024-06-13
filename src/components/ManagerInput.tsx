@@ -1,5 +1,5 @@
 import styles from '../App.module.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ManagerInputProps } from './ManagerInputContainer';
 import { coursesURL, resultURL } from '..';
 let unique = require('unique-array-objects');
@@ -19,8 +19,8 @@ interface Category {
 const ManagerInput: React.FC<ManagerInputProps> = (
     {
         stringChanger, setTeacher, teacher, setSelectValue,
-        errorMessages, fetchRequests,
-        responseData, setErrorMessages, setStudents, students
+        errorMessages, fetchRequests, firstRender,
+        responseData, setErrorMessages, setStudents, students, setChecked, checked
     }) => {
 
     const [categories, setCategories] = useState<Category[]>([]);
@@ -54,13 +54,17 @@ const ManagerInput: React.FC<ManagerInputProps> = (
             return;
         }
         fetchRequests.addStudents(resultURL, responseData)
-            .then(data => console.log(data));
-        setErrorMessages([]);
+            .then(data => setErrorMessages(data));
     };
+
+    useEffect(() => {
+        if (firstRender) {
+            sendSecondRequest()
+        }
+    }, [checked])
 
     return (
         <main className={styles.container}>
-            <div className={styles.wrapper}>
                 {errorMessages.map((error, i) => {
                     if (error.errorType >= 200) {
                         return null;
@@ -76,19 +80,20 @@ const ManagerInput: React.FC<ManagerInputProps> = (
                         return <div key={i} className={styles.error + ' ' + styles.complete}>{error.errorMessage}</div>;
                     }
                     console.log(error);
-                    return <div key={i} className={styles.error + ' ' + styles.confirm}>{error.errorMessage} <button onClick={sendSecondRequest}>Продолжить</button></div>;
+                    return <div key={i} className={styles.error + ' ' + styles.confirm}>{error.errorMessage} <button className={styles.secondRequestBtn} onClick={() => setChecked(true)}>Продолжить</button></div>;
                 })}
-                <h2>Заголовок</h2>
+            <div className={styles.wrapper}>
+                <h2>Добавление новых пользователей</h2>
                 <select onChange={(e) => setSelectedCategory(e.target.value)} className={styles.dropMenu}>
                     <option disabled selected>Выберите категорию</option>
-                    {categories.map((category) => (
+                    {categories?.map((category) => (
                         <option key={category.category_id} value={category.category_id}>{category.category}</option>
                     ))}
                 </select>
 
                 <select onChange={(e) => setSelectValue(e.target.value)} className={styles.dropMenu}>
                     <option disabled selected>Выберите курс</option>
-                    {courses.map((course) => (
+                    {courses?.map((course) => (
                         <option key={course.course_id} value={course.shortname}>{course.fullname}</option>
                     ))}
                 </select>

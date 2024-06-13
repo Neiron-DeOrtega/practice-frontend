@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/practice-frontend/static/css/main.3a9c49b4.css",
-    "main.js": "/practice-frontend/static/js/main.28be1893.js",
-    "static/js/453.07b51e5c.chunk.js": "/practice-frontend/static/js/453.07b51e5c.chunk.js",
-    "index.html": "/practice-frontend/index.html",
-    "main.3a9c49b4.css.map": "/practice-frontend/static/css/main.3a9c49b4.css.map",
-    "main.28be1893.js.map": "/practice-frontend/static/js/main.28be1893.js.map",
-    "453.07b51e5c.chunk.js.map": "/practice-frontend/static/js/453.07b51e5c.chunk.js.map"
+    "main.css": "https://mdl4.syktsu.ru/practice-frontend/static/css/main.4b6df769.css",
+    "main.js": "https://mdl4.syktsu.ru/practice-frontend/static/js/main.a5abd125.js",
+    "static/js/845.53563f8e.chunk.js": "https://mdl4.syktsu.ru/practice-frontend/static/js/845.53563f8e.chunk.js",
+    "index.html": "https://mdl4.syktsu.ru/practice-frontend/index.html",
+    "main.4b6df769.css.map": "https://mdl4.syktsu.ru/practice-frontend/static/css/main.4b6df769.css.map",
+    "main.a5abd125.js.map": "https://mdl4.syktsu.ru/practice-frontend/static/js/main.a5abd125.js.map",
+    "845.53563f8e.chunk.js.map": "https://mdl4.syktsu.ru/practice-frontend/static/js/845.53563f8e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a9c49b4.css",
-    "static/js/main.28be1893.js"
+    "static/css/main.4b6df769.css",
+    "static/js/main.a5abd125.js"
   ]
 }

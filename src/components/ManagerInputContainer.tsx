@@ -13,6 +13,9 @@ export interface ManagerInputProps {
     setErrorMessages: React.Dispatch<React.SetStateAction<ErrorList[]>>
     students: string,
     setStudents: React.Dispatch<React.SetStateAction<string>>
+    setChecked: React.Dispatch<React.SetStateAction<boolean>>;
+    checked: boolean
+    firstRender: boolean
 }
 
 type AddErrorFunction = (errorType: number, errors: ErrorList[], string?: string) => void;
@@ -35,20 +38,22 @@ const ManagerInputContainer: React.FC<ManagerInputContainerProps> = ({ fetchRequ
     const [result, setResult] = useState<string>('')
     const [firstRender, setFirstRender] = useState<boolean>(false)
     const [students, setStudents] = useState('');
+    const [checked, setChecked] = useState<boolean>(false)
 
     let errors: ErrorList[] = [];
 
     let responseData = {
         inputString: result,
         selectValue: selectValue,
-        teacher: teacher
+        teacher: teacher,
+        isChecked: checked
     }
 
     const sendResult = async () => {
         fetchRequests.addStudents(resultURL, responseData)
             .then(data => {
                 setErrorMessages(data)
-                if (data.filter((el: ErrorList) => el.errorType < 200).length === 0) {
+                if (data.filter((el: ErrorList) => el.errorType <= 200).length === 0) {
                     setStudents('')
                 }
             })
@@ -74,6 +79,7 @@ const ManagerInputContainer: React.FC<ManagerInputContainerProps> = ({ fetchRequ
             addError(100, errors)
             setErrorMessages(errors)
         }
+        console.log(errors)
         if(errors.length > 0) {
             return
         }
@@ -161,6 +167,9 @@ const ManagerInputContainer: React.FC<ManagerInputContainerProps> = ({ fetchRequ
             setErrorMessages={setErrorMessages}
             setStudents={setStudents}
             students={students}
+            setChecked={setChecked}
+            checked={checked}
+            firstRender={firstRender}
         />
     );
 };

@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import styles from './App.module.css';
 //@ts-ignore
 import reportWebVitals from './reportWebVitals';
 import ManagerInputContainer, { ErrorList } from './components/ManagerInputContainer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 
 export let resultURL = 'https://mdl4.syktsu.ru/practice-backend/manager/students';
 export let coursesURL = 'https://mdl4.syktsu.ru/practice-backend/manager/courses';
+
+// export let resultURL = 'http://localhost:4000/manager/students';
+// export let coursesURL = 'http://localhost:4000/manager/courses';
 
 const addError = (errorType: number, errors: ErrorList[], string?: string) => {
   if (errorType === 100) {
@@ -107,9 +110,11 @@ const fetchRequestsInstance = new FetchRequests();
 
 root.render(
   <React.StrictMode>
-    <main className={styles.container}>
-      <ManagerInputContainer addError={addError} fetchRequests={fetchRequestsInstance}/>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<ManagerInputContainer addError={addError} fetchRequests={fetchRequestsInstance}/>}/>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
