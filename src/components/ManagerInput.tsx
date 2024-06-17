@@ -37,7 +37,7 @@ const ManagerInput: React.FC<ManagerInputProps> = (
             }
         };
         fetchData();
-    }, [fetchRequests]);
+    }, []);
 
     useEffect(() => {
         if (selectedCategory) {
@@ -107,7 +107,7 @@ const ManagerInput: React.FC<ManagerInputProps> = (
                     <div>Иванов Иван Иванович example@gmail.com 89123456789</div>
                     <div>Егоров Егор Егорович another@mail.ru 89229001234</div>
                 </h3>
-                <textarea value={students} onChange={(e) => setStudents(e.target.value)} className={styles.textarea} placeholder='Введите данные студентов' />
+                <textarea value={students} onChange={(e) => setStudents(e.target.value)} className={styles.textarea} placeholder='Введите данные пользователей' />
                 <button onClick={() => stringChanger(students)} className={styles.textareaBtn}>Отправить</button>
             </div>
         </main>

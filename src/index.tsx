@@ -6,11 +6,11 @@ import ManagerInputContainer, { ErrorList } from './components/ManagerInputConta
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 
-export let resultURL = 'https://mdl4.syktsu.ru/practice-backend/manager/students';
-export let coursesURL = 'https://mdl4.syktsu.ru/practice-backend/manager/courses';
+// export let resultURL = 'https://mdl4.syktsu.ru/practice-backend/manager/students';
+// export let coursesURL = 'https://mdl4.syktsu.ru/practice-backend/manager/courses';
 
-// export let resultURL = 'http://localhost:4000/manager/students';
-// export let coursesURL = 'http://localhost:4000/manager/courses';
+export let resultURL = 'http://localhost:4000/practice-backend/manager/students';
+export let coursesURL = 'http://localhost:4000/practice-backend/manager/courses';
 
 const addError = (errorType: number, errors: ErrorList[], string?: string) => {
   if (errorType === 100) {
